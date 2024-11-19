@@ -9,10 +9,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public')); // For serving static files
 app.set('view engine', 'ejs');
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/ecommerceDB');
 
-// Schema and Model
+mongoose.connect('mongodb+srv://sanpreetsingh836:0UOYW7eENrFSsXfO@cluster0.qjig4.mongodb.net/ecommerceretryWrites=true&w=majority&appName=Cluster0', {
+
+})
+.then(() => console.log('Connected to MongoDB Atlas'))
+.catch(err => console.error('Error connecting to MongoDB:', err));
+
 const productSchema = new mongoose.Schema({
   name: String,
   price: Number,
